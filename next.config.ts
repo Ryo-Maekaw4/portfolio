@@ -5,7 +5,7 @@ const nextConfig = {
   images: {
     unoptimized: true, // ← imageコンポーネント使うなら必要
   },
-  // basePath: "/リポジトリ名", ← GitHub Pagesのサブディレクトリ運用時に必要！
+  basePath: "/my-portfolio",
 };
 
 module.exports = nextConfig;
