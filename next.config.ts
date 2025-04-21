@@ -1,11 +1,10 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // ← 静的エクスポートモードにする！
-  trailingSlash: true, // ← ページのURLを「/」で終わらせる
+  output: "export",
+  basePath: "/portfolio", // ← リポジトリ名に合わせてここを修正！
+  trailingSlash: true,
   images: {
-    unoptimized: true, // ← imageコンポーネント使うなら必要
+    unoptimized: true,
   },
-  basePath: "/my-portfolio",
 };
 
 module.exports = nextConfig;
