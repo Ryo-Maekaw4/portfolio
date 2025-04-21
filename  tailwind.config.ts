@@ -7,7 +7,11 @@ const config: Config = {
     "./app/**/*.{ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        dela: ['"Dela Gothic One"', "sans-serif"], // ← クラス名は好きにしてOK
+      },
+    }
   },
   plugins: [],
 };
