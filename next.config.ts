@@ -1,6 +1,9 @@
+const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig = {
-  output: "export",
-  basePath: "/portfolio", // ← リポジトリ名に合わせてここを修正！
+  output: 'export',
+  basePath: isProd ? '/portfolio' : '',
+  assetPrefix: isProd ? '/portfolio/' : '',
   trailingSlash: true,
   images: {
     unoptimized: true,
