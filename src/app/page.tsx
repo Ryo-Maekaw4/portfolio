@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/accordion"
 import { ScrollArea } from "@/components/ui/scroll-area"
 
-const Skills = {
+// const Skills = {
   'php': 'php',
   'html': 'html',
   'mysql': 'mysql',
