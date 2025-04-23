@@ -40,55 +40,7 @@ const Careers = {
     'fase': {
       1: ['基本設計', '詳細設計', '開発', 'テスト', '保守運用']
     }
-  },
-  3: {
-    'period_from': '2025-08',
-    'period_to': 'now',
-    'project': 'BtoB中間システム保守運用',
-    'detail': '',
-    'member': '',
-    'tools': '',
-    'position': 'SE',
-    'fase': {
-      1: ['基本設計', '詳細設計', '開発', 'テスト', '保守運用']
-    }
-  },
-  4: {
-    'period_from': '2025-08',
-    'period_to': 'now',
-    'project': 'BtoB中間システム保守運用',
-    'detail': '',
-    'member': '',
-    'tools': '',
-    'position': 'SE',
-    'fase': {
-      1: ['基本設計', '詳細設計', '開発', 'テスト', '保守運用']
-    }
-  },
-  5: {
-    'period_from': '2025-08',
-    'period_to': 'now',
-    'project': 'BtoB中間システム保守運用',
-    'detail': '',
-    'member': '',
-    'tools': '',
-    'position': 'SE',
-    'fase': {
-      1: ['基本設計', '詳細設計', '開発', 'テスト', '保守運用']
-    }
-  },
-  6: {
-    'period_from': '2025-08',
-    'period_to': 'now',
-    'project': 'BtoB中間システム保守運用',
-    'detail': '',
-    'member': '',
-    'tools': '',
-    'position': 'SE',
-    'fase': {
-      1: ['基本設計', '詳細設計', '開発', 'テスト', '保守運用']
-    }
-  },
+  }
 }
 
 const calcMonths = (period_from: string, period_to: string) => {
@@ -124,10 +76,10 @@ export default function Home() {
             <h1>Careers</h1>
             {/* <ScrollArea className="h-[200px] w-[350px] rounded-md border p-4"> */}
             <Accordion type="single" collapsible>
-                {Object.keys(Careers).map((key) => {
-                  const data = Careers[key]
+              {Object.keys(Careers).map((key) => {
+                const data = Careers[Number(key) as keyof typeof Careers];
                   return (
-                    <AccordionItem value={Careers[key]}>
+                    <AccordionItem key={key} value={key}>
                       <AccordionTrigger>
                         <p className="font-bold">{data.project} {data.period_from} ~ {data.period_to}（{calcMonths(data.period_from, data.period_to)}ヶ月）</p>
                       </AccordionTrigger>
@@ -143,6 +95,7 @@ export default function Home() {
 
                           <Card className="rounded-2xl">
                             <CardContent className="p-6">
+                              <p>担当フェーズ</p>
                               <ul className="list-disc list-inside">
                                 {Object.values(data.fase).flat().map((fase, index) => (
                                   <li key={index}>{fase}</li>
@@ -154,8 +107,9 @@ export default function Home() {
 
                         <Card className="rounded-2xl">
                           <CardContent className="p-6">
-                            {Object.values(data.tools).flat().map((tool) => (
-                              <Badge variant="outline">{tool}</Badge>
+                            <p>使用ツール</p>
+                            {Object.values(data.tools).flat().map((tool, index) => (
+                              <Badge key={index} variant="outline">{tool}</Badge>
                             ))}
                           </CardContent>
                         </Card>
