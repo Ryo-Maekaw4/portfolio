@@ -96,7 +96,6 @@ export default function Home() {
 
               <h1 className="text-3xl font-bold mb-2">Ryo Maekawa</h1>
             </div>
-            <p className="text-gray-600">システムエンジニア / PHP, Laravel, React 勉強中</p>
           </CardContent>
         </Card>
       </div>
