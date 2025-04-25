@@ -24,17 +24,6 @@ const Fases: Record<number, string> = {
   8: '総合試験',
   9: '運用保守'
 };
-const steps = [
-  { label: '調査・分析', status: 'complete' },
-  { label: '要件定義', status: 'complete' },
-  { label: '基本設計', status: 'complete' },
-  { label: '詳細設計', status: 'current' },
-  { label: '製造', status: 'upcoming' },
-  { label: '単体試験', status: 'upcoming' },
-  { label: '結合試験', status: 'upcoming' },
-  { label: '総合試験', status: 'upcoming' },
-  { label: '運用・保守', status: 'upcoming' },
-];
 
 
 const Os: Record<number, string> = {
