@@ -1,0 +1,43 @@
+import React from 'react';
+import clsx from 'clsx';
+
+interface StepBarProps {
+  steps: string[];
+  activeIndexes: number[];
+}
+
+export const StepBar: React.FC<StepBarProps> = ({ steps, activeIndexes }) => {
+  return (
+    <div className="flex overflow-x-scroll">
+      {steps.map((label, index) => {
+        const isActive = activeIndexes.includes(index);
+
+        return (
+          <div
+            key={label}
+            className='flex-shrink-0 w-18 h-8 flex items-center justify-center text-xs font-medium'
+          >
+
+            <div
+              className={clsx(
+                'w-0 h-0 border-y-[12px] border-l-[6px] border-x-transparent z-10',
+                isActive ? 'border-green-400 text-black' : 'border-gray-100 text-gray-400'
+              )}
+            />
+            <span className={clsx(
+              'h-6 w-24 flex items-center justify-center',
+              isActive ? 'bg-green-400 text-black' : 'bg-gray-100 text-gray-400'
+            )}>{label}</span>
+            {/* 右側の矢印の形状 */}
+            <div
+              className={clsx(
+                'w-0 h-0 border-y-[12px] border-l-[6px] border-y-transparent z-10',
+                isActive ? 'border-green-400 text-black' : 'border-gray-100 text-gray-400'
+              )}
+            />
+          </div>
+        );
+      })}
+    </div>
+  );
+};
