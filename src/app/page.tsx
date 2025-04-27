@@ -91,6 +91,78 @@ const Careers = {
     'tools': ['Ubuntu20.04LTS', 'Laravel9', 'CloudSQL for MySQL(8.0)', 'L5-Swagger', 'Slack', 'Trello', 'Sourcetree', 'VSCode', 'DBeaver', 'A5:SQL Mk-2'],
     'position': 'SE',
     'fase': [1, 3, 5, 6, 8].map((key) => Fases[key])
+  },
+  6: {
+    'period_from': '2021/02',
+    'period_to': '2021/11',
+    'project': '大学向けオンライン出願システム開発支援、改修',
+    'detail': '■概要\n大学向けオンライン出願システム各種申込画面、管理画面\nの追加改修\n\n\n■作業詳細\n・EXCELによる回帰テスト仕様書作成\n・追加機能の詳細設計書作成\n・管理画面の検索機能に検索項目を追加\n・年度毎の試験内容に合わせた申込画面改修\n　出願者の入力項目を追加、バリデーションを更新\n　出願可能試験の変更、試験日と会場のパターン変更\n　複数出願時の検定料計算を改修',
+    'member': 10,
+    'os': Os[1],
+    'lang': ['php7.2', 'mysql'],
+    'tools': ['Laravel4', 'Phpstorm'],
+    'position': 'SE',
+    'fase': [5, 6].map((key) => Fases[key])
+  },
+  7: {
+    'period_from': '2020/08',
+    'period_to': '2021/01',
+    'project': '不動産向け管理システムの開発改修',
+    'detail': '■概要\n不動産事業者向けの管理画面\n及び追加機能の開発\n\n■作業詳細\n・詳細設計\n・管理画面の作成\n　物件管理画面の登録、検索、編集、削除機能\n　エージェント管理画面の登録、検索、編集、削除機能\n・モンキーテストによる動作テスト\n・利用者の問い合わせ画面にAPIを追加\n　問い合わせたユーザーの管理機能（登録、削除）を追加',
+    'member': 4,
+    'os': Os[1],
+    'lang': ['php7.4'],
+    'tools': ['Laravel7'],
+    'position': 'SE',
+    'fase': [5, 6].map((key) => Fases[key])
+  },
+  8: {
+    'period_from': '2019/11',
+    'period_to': '2022/05',
+    'project': '簡易決済システムの調査、テスト',
+    'detail': '■概要\n携帯での簡易決済システムの機能追加\n\n■作業詳細\n・バッチの作成\n・詳細設計\n・テストデータを作成してテスト実行',
+    'member': 10,
+    'os': Os[1],
+    'lang': ['php7.2'],
+    'tools': ['Yii2', 'Phpstorm'],
+    'position': 'SE',
+    'fase': [5, 6].map((key) => Fases[key])
+  },
+  9: {
+    'period_from': '2019/05',
+    'period_to': '2019/10',
+    'project': '求人情報サイトの保守運用',
+    'detail': '■概要\n医療専門求人情報サイトの保守運用\n・クリニック用ランディングページの作成\n\n■作業詳細\n・既存バグの修正\n・フロント部分とバック部分の機能追加',
+    'member': 5,
+    'os': Os[1],
+    'lang': ['php7.2'],
+    'tools': ['Codeignighter', 'jQuery'],
+    'position': 'SE',
+    'fase': [5, 6].map((key) => Fases[key])
+  },
+  10: {
+    'period_from': '2018/12',
+    'period_to': '2019/03',
+    'project': 'コールセンターサポートシステム',
+    'detail': '■概要\nコールセンター向けのパッケージシステムの開発\n\n■作業詳細\n・SOAP通信を使用した問い合わせ機能の実装\n・作成されたテスト項目書に沿ってのテスト実行',
+    'member': 5,
+    'os': Os[1],
+    'lang': ['php7.2'],
+    'tools': ['Codeignighter', 'jQuery'],
+    'position': 'SE',
+    'fase': [5, 6].map((key) => Fases[key])
+  },
+  11: {
+    'period_from': '2017/04',
+    'period_to': '2018/11',
+    'project': '社内向けシステム',
+    'detail': '■概要\n社内の派遣社員の管理システムの機能追加、研修\n\n■作業詳細\n・HTML,CSS,jQueryを使用したフロントの実装\n・担当機能のテスト仕様書作成、テスト実行\n・PHPUnitを使用したテストコードの実装\n・Vagrantを使用した仮想環境構築',
+    'member': 5,
+    'os': Os[1],
+    'lang': ['php7.1'],
+    'tools': ['Codeignighter', 'jQuery'],
+    'position': 'SE',
+    'fase': [5, 6].map((key) => Fases[key])
   }
 }
 
