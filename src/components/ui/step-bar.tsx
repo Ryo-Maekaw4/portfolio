@@ -15,7 +15,7 @@ export const StepBar: React.FC<StepBarProps> = ({ steps, activeIndexes }) => {
         return (
           <div
             key={label}
-            className='flex-shrink-0 w-18 h-8 flex items-center justify-center text-xs font-medium'
+            className='flex-shrink-0 w-18 h-4 flex items-center justify-center text-xs font-medium'
           >
 
             <div
@@ -25,7 +25,7 @@ export const StepBar: React.FC<StepBarProps> = ({ steps, activeIndexes }) => {
               )}
             />
             <span className={clsx(
-              'h-6 w-24 flex items-center justify-center',
+              'h-4 w-24 flex items-center justify-center',
               isActive ? 'bg-green-400 text-black' : 'bg-gray-100 text-gray-400'
             )}>{label}</span>
             {/* 右側の矢印の形状 */}
