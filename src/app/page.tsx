@@ -207,7 +207,7 @@ const calcMonths = (period_from: string, period_to: string | null) => {
 export default function Home() {
   const [openItems, setOpenItems] = useState<string[]>([]);
   return (
-    <main className="min-h-screen items-center justify-center p-8 w-full ">
+    <main className="min-h-screen items-center justify-center p-4 w-full ">
       <div className="mb-2">
         <Card className="shadow-xl rounded-2xl">
           <CardContent className="p-6">
@@ -219,7 +219,7 @@ export default function Home() {
               <h1 className="text-3xl font-bold mr-2 text-teal-600">R.M</h1>
               <p className="flex items-center text-sm text-gray-600">実務経験：6年</p>
             </div>
-            <div className="flex">
+            <div className="flex overflow-x-auto">
               {Object.entries(Skills).map(([category, skillList], index) => (
                 <div key={category} className="flex items-start items-center flex-1">
                   <div className="w-full">
@@ -256,7 +256,7 @@ export default function Home() {
 
       <div className="w-full">
         <Card className="w-full shadow-xl rounded-2xl">
-          <CardContent className="p-6">
+          <CardContent className="p-3">
             <div className="flex justify-between">
               <h1 className="text-2xl text-gray-600">Careers</h1>
               <Button
