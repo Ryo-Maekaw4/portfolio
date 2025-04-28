@@ -15,24 +15,24 @@ export const StepBar: React.FC<StepBarProps> = ({ steps, activeIndexes }) => {
         return (
           <div
             key={label}
-            className='flex-shrink-0 w-18 h-4 flex items-center justify-center text-xs font-medium'
+            className='flex-shrink-0 w-18 h-8 flex items-center justify-center text-xs font-medium'
           >
 
             <div
               className={clsx(
-                'w-0 h-0 border-y-[12px] border-l-[6px] border-x-transparent z-10',
-                isActive ? 'border-green-400 text-black' : 'border-gray-100 text-gray-400'
+                'w-0 h-0 border-y-[8px] border-l-[6px] border-x-transparent z-10',
+                isActive ? 'border-teal-400 text-black-400' : 'border-gray-100 text-gray-400'
               )}
             />
             <span className={clsx(
               'h-4 w-24 flex items-center justify-center',
-              isActive ? 'bg-green-400 text-black' : 'bg-gray-100 text-gray-400'
+              isActive ? 'bg-teal-400 text-black-400' : 'bg-gray-100 text-gray-400'
             )}>{label}</span>
             {/* 右側の矢印の形状 */}
             <div
               className={clsx(
-                'w-0 h-0 border-y-[12px] border-l-[6px] border-y-transparent z-10',
-                isActive ? 'border-green-400 text-black' : 'border-gray-100 text-gray-400'
+                'w-0 h-0 border-y-[8px] border-l-[6px] border-y-transparent z-10',
+                isActive ? 'border-teal-400 text-black-400' : 'border-gray-100 text-gray-400'
               )}
             />
           </div>
