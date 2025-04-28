@@ -8,7 +8,7 @@ interface StepBarProps {
 
 export const StepBar: React.FC<StepBarProps> = ({ steps, activeIndexes }) => {
   return (
-    <div className="flex overflow-x-scroll">
+    <div className="flex overflow-x-auto">
       {steps.map((label, index) => {
         const isActive = activeIndexes.includes(index);
 
