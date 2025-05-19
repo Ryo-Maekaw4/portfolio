@@ -12,8 +12,9 @@ import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { StepBar } from "@/components/ui/step-bar";
 import { Button } from "@/components/ui/button"
+import { supabase } from '@/lib/supabaseClient';
 
-import { useState } from "react"
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 
 // import { ScrollArea } from "@/components/ui/scroll-area"
@@ -40,6 +41,20 @@ const Fases: Record<number, string> = {
 const Os: Record<number, string> = {
   1: 'windows',
   2: 'mac'
+};
+
+type Career = {
+  career_id: string;
+  period_from: string;
+  period_to: string;
+  project: string;
+  detail: string;
+  member: number;
+  os: string;
+  lang: string[];
+  tools: string[];
+  position: string;
+  fase: string[];
 };
 
 const Careers = {
@@ -204,8 +219,41 @@ const calcMonths = (period_from: string, period_to: string | null) => {
   return (toYear - fromYear) * 12 + (toMonth - fromMonth) + 1;
 };
 
+
 export default function Home() {
   const [openItems, setOpenItems] = useState<string[]>([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data: careerRows, error: staffError } = await supabase
+        .from('careers')
+        .select(`
+        id,
+        project,
+        period_from,
+        period_to,
+        member,
+        position,
+        os,
+        detail,
+        career_fases (
+          fase
+        ),
+        career_langs (
+          lang
+        ),
+        career_tools (
+          tool
+        )
+      `);
+
+      console.log(careerRows);
+      if (staffError) {
+        console.error('経歴取得失敗:', staffError);
+        return;
+      }
+    }
+    fetchData();
+  }, []);
   return (
     <main className="min-h-screen items-center justify-center p-4 w-full ">
       <div className="mb-2">
