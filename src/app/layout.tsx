@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "My Portforio",
-  description: "2025年4月28日現在ポートフォリオ",
+  description: "2025年5月21日現在ポートフォリオ",
   icons: {
     icon: "/favicon.ico",
   }
