@@ -14,7 +14,7 @@ import { StepBar } from "@/components/ui/step-bar";
 import { Button } from "@/components/ui/button"
 import { supabase } from '@/lib/supabaseClient';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 
 
 // import { ScrollArea } from "@/components/ui/scroll-area"
@@ -35,12 +35,6 @@ const Fases: Record<number, string> = {
   7: '結合試験',
   8: '総合試験',
   9: '運用保守'
-};
-
-
-const Os: Record<number, string> = {
-  1: 'windows',
-  2: 'mac'
 };
 
 type Career = {
