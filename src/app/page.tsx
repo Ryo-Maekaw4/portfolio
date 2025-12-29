@@ -64,7 +64,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="text-6xl md:text-8xl leading-none bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent font-badeen"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl leading-none bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent font-badeen whitespace-nowrap"
           >
             Ryo&apos;s Portfolio
           </motion.h1>
@@ -123,6 +123,12 @@ export default function Home() {
                 <span className="bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent">Home</span>
               </button>
               <button
+                onClick={() => scrollToSection('about')}
+                className="text-yellow-300 hover:text-yellow-400 transition-colors duration-200 font-badeen"
+              >
+                <span className="bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent">About</span>
+              </button>
+              <button
                 onClick={() => scrollToSection('skills')}
                 className="text-yellow-300 hover:text-yellow-400 transition-colors duration-200 font-badeen"
               >
@@ -159,52 +165,84 @@ export default function Home() {
               </Avatar>
             </div>
             <div className="flex-1 text-center md:text-left">
-              <h1 className="text-5xl md:text-6xl mb-4 bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent  font-badeen">
+              {/* <h1 className="text-5xl md:text-6xl mb-4 bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent  font-badeen">
                 Ryo Maekawa
               </h1>
               <p className="text-gray-400 max-w-2xl leading-relaxed">
                 PHPをメインに、Webアプリケーション開発を行っています。
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
       </motion.section>
 
-      {/* スキルセクション */}
+      {/* Aboutセクション */}
       <motion.section
-        id="skills"
+        id="about"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: showContent ? 1 : 0, y: showContent ? 0 : 20 }}
         transition={{ duration: 0.8, delay: 0.7 }}
         className="py-12 px-4 bg-black scroll-mt-16"
       >
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl text-center mb-8 bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent font-badeen">Skills</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <h2 className="text-3xl mb-6 bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent font-badeen">About</h2>
+          <Card className="bg-gray-900 border-2 border-yellow-500/30 hover:border-yellow-500 transition-all duration-300 shadow-lg shadow-yellow-500/10">
+            <CardContent className="p-6">
+              <div className="space-y-4 text-gray-300">
+                <div className="flex items-center gap-2">
+                  <h3 className="text-yellow-400 mb-2 font-badeen">Name :</h3>
+                  <p className="text-lg">前川 凌（Maekawa Ryo）</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-yellow-400 mb-2 font-badeen">Age :</h3>
+                  <p className="text-lg">32</p>
+                </div>
+                <div className="text-gray-300">
+                  <p>2020年頃からSESとしてWebアプリケーション開発・保守運用を行っています。</p>
+                  <p>主な担当は詳細設計から実装、テストまで一通りを対応しています。</p>
+                  <p>現在はPHPをメインに業務に取り組んでいますが、フロントの案件にも関わってみたいためReactを中心に勉強中です。</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </motion.section>
+
+      {/* Skillsセクション */}
+      <motion.section
+        id="skills"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: showContent ? 1 : 0, y: showContent ? 0 : 20 }}
+        transition={{ duration: 0.8, delay: 0.9 }}
+        className="py-12 px-4 bg-black scroll-mt-16"
+      >
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl mb-6 bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent font-badeen">Skills</h2>
+          <div className="grid grid-cols-2 gap-4">
             {Object.entries(Skills).map(([category, skillList]) => (
-              <Card key={category} className="bg-gray-900 border-2 border-yellow-500/30 hover:border-yellow-500 transition-all duration-300 shadow-lg shadow-yellow-500/10 hover:shadow-yellow-500/20">
-                <CardContent className="p-6">
-                  <h3 className="text-lg mb-4 text-yellow-900 text-center font-badeen">
+              <Card key={category} className="bg-gray-900 border-2 border-yellow-500/30 hover:border-yellow-500 transition-all duration-300 shadow-lg shadow-yellow-500/10 hover:shadow-yellow-500/20 flex flex-col">
+                <CardContent className="p-4 flex-1 flex flex-col">
+                  <h3 className="text-base mb-3 text-center font-badeen">
                     <span className="bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent">
                       {category}
                     </span>
                   </h3>
-                  <div className="flex flex-wrap gap-2 justify-center">
+                  <div className="flex flex-wrap gap-1.5 justify-center">
                     {skillList.map((skill, idx) => (
                       <Badge 
                         key={idx} 
                         variant="outline" 
-                        className="bg-black border-yellow-500/50 text-yellow-400 hover:bg-yellow-500/10 hover:border-yellow-500 hover:text-yellow-300 transition-colors"
+                        className="bg-black border-yellow-500/50 text-yellow-400 hover:bg-yellow-500/10 hover:border-yellow-500 hover:text-yellow-300 transition-colors text-xs"
                       >
                         {skill}
                       </Badge>
                     ))}
-            </div>
-          </CardContent>
-        </Card>
+                  </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
-      </div>
+        </div>
       </motion.section>
 
       {/* プロジェクトセクション - 一旦非表示 */}
@@ -320,6 +358,15 @@ export default function Home() {
       </div>
       </section>
       */}
+
+      {/* フッター */}
+      <footer className="py-8 px-4 bg-black border-t border-yellow-500/30">
+        <div className="max-w-6xl mx-auto text-center">
+          <p className="text-gray-400 text-sm">
+            © {new Date().getFullYear()} Ryo Maekawa. All rights reserved.
+          </p>
+        </div>
+      </footer>
 
     </main>
   );
