@@ -2,20 +2,11 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion"
 import { Badge } from "@/components/ui/badge"
-import { Separator } from "@/components/ui/separator"
-import { StepBar } from "@/components/ui/step-bar";
-import { Button } from "@/components/ui/button"
 import { supabase } from '@/lib/supabaseClient';
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 
 // import { ScrollArea } from "@/components/ui/scroll-area"
@@ -26,117 +17,13 @@ const Skills: Record<string, string[]> = {
   'FRAMEWORK': ['laravel', 'Symfony', 'Codeignighter', 'Yii', 'React', 'Next.js']
 };
 
-const Fases: Record<number, string> = {
-  1: '調査分析',
-  2: '要件定義',
-  3: '基本設計',
-  4: '詳細設計',
-  5: '開発',
-  6: '単体試験',
-  7: '結合試験',
-  8: '総合試験',
-  9: '運用保守'
-};
 
-type Career = {
-  id: string;
-  project: string;
-  period_from: string;
-  period_to: string | null;
-  member: number;
-  position: string;
-  os: string;
-  detail: string;
-  career_fases: { fase: number }[];
-  career_langs: { lang: string }[];
-  career_tools: { tool: string }[];
-};
-
-type TransformedCareer = {
-  id: string;
-  project: string;
-  period_from: string;
-  period_to: string | null;
-  member: number;
-  position: string;
-  os: string;
-  detail: string;
-  fase: string[];
-  lang: string[];
-  tools: string[];
-};
-
-const calcMonths = (period_from: string, period_to: string | null) => {
-  let toYear: number;
-  let toMonth: number;
-
-  if (!period_to) {
-    const today = new Date();
-    toYear = today.getFullYear();
-    toMonth = today.getMonth();
-  } else {
-    [toYear, toMonth] = period_to.split('/').map(Number);
-  }
-  const [fromYear, fromMonth] = period_from.split('/').map(Number);
-  return (toYear - fromYear) * 12 + (toMonth - fromMonth) + 1;
-};
 
 
 export default function Home() {
-  const [openItems, setOpenItems] = useState<string[]>([]);
-  const [careers, setCareers] = useState<TransformedCareer[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [showContent, setShowContent] = useState(false);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const { data: careerRows, error: staffError } = await supabase
-        .from('careers')
-        .select(`
-          id,
-          project,
-          period_from,
-          period_to,
-          member,
-          position,
-          os,
-          detail,
-          career_fases (
-            fase
-          ),
-          career_langs (
-            lang
-          ),
-          career_tools (
-            tool
-          )
-        `).order('period_to', { ascending: false });
-
-      if (staffError) {
-        console.error('経歴取得失敗:', staffError);
-        return;
-      }
-
-      if (careerRows) {
-        const transformedCareers: TransformedCareer[] = careerRows.map((data: Career) => ({
-          id: data.id,
-          project: data.project,
-          period_from: data.period_from,
-          period_to: data.period_to,
-          member: data.member,
-          position: data.position,
-          os: data.os,
-          detail: data.detail.replace(/\\n/g, '\n'),
-          fase: data.career_fases.map(f => Fases[f.fase]),
-          lang: data.career_langs.map(l => l.lang),
-          tools: data.career_tools.map(t => t.tool)
-        }));
-
-        setCareers(transformedCareers);
-      }
-    };
-    fetchData();
-  }, []);
 
   useEffect(() => {
     // 初期ロードアニメーション
@@ -156,8 +43,6 @@ export default function Home() {
     };
   }, []);
 
-  const today = new Date();
-  
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -182,7 +67,7 @@ export default function Home() {
             transition={{ duration: 1, ease: "easeOut" }}
             className="text-6xl md:text-8xl leading-none bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent font-badeen"
           >
-            Ryo's Portfolio
+            Ryo&apos;s Portfolio
           </motion.h1>
         </motion.div>
       ) : (
@@ -202,7 +87,7 @@ export default function Home() {
                 }}
                 className="text-2xl leading-none bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent font-badeen pointer-events-auto"
               >
-                Ryo's Portfolio
+                Ryo&apos;s Portfolio
               </motion.span>
             </div>
           </div>
@@ -222,7 +107,7 @@ export default function Home() {
               {/* タイトルはlayoutIdで移動するため、ここには表示しない */}
               <div className="w-0 h-0 overflow-hidden">
                 <span className="text-2xl bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent font-badeen">
-                  Ryo's Portfolio
+                  Ryo&apos;s Portfolio
                 </span>
               </div>
             </div>
