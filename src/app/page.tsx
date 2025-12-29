@@ -114,7 +114,7 @@ export default function Home() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: isLoading ? 0 : 1, x: isLoading ? -20 : 0 }}
               transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-              className="flex items-center gap-6"
+              className="flex items-center gap-4"
             >
               <button
                 onClick={() => scrollToSection('home')}
