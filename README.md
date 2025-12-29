@@ -1,36 +1,134 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio
 
-## Getting Started
+ポートフォリオサイトのプロジェクトです。
 
-First, run the development server:
+## 技術構成
 
+### フレームワーク・言語
+- **Next.js 15.3.0** - Reactベースのフルスタックフレームワーク
+- **React 19.0.0** - UIライブラリ
+- **TypeScript 5** - 型安全性を提供する言語
+
+### UI・スタイリング
+- **Tailwind CSS 4** - ユーティリティファーストのCSSフレームワーク
+- **shadcn/ui** - Radix UIベースのコンポーネントライブラリ
+  - `@radix-ui/react-accordion` - アコーディオンコンポーネント
+  - `@radix-ui/react-avatar` - アバターコンポーネント
+  - `@radix-ui/react-dialog` - ダイアログコンポーネント
+  - `@radix-ui/react-scroll-area` - スクロールエリアコンポーネント
+  - `@radix-ui/react-separator` - セパレーターコンポーネント
+  - `@radix-ui/react-tabs` - タブコンポーネント
+- **lucide-react** - アイコンライブラリ
+- **class-variance-authority** - コンポーネントのバリアント管理
+- **clsx** / **tailwind-merge** - クラス名のユーティリティ
+
+### バックエンド・データベース
+- **Supabase** - BaaS（Backend as a Service）
+  - `@supabase/supabase-js` - Supabaseクライアントライブラリ
+  - `@supabase/ssr` - Next.js SSR対応のSupabaseクライアント
+
+### 開発ツール
+- **ESLint** - コード品質チェック
+- **PostCSS** - CSS処理ツール
+
+## 環境構築
+
+### 前提条件
+- Node.js 20以上
+- npm / yarn / pnpm / bun のいずれか
+
+### セットアップ手順
+
+1. **リポジトリのクローン**
+```bash
+git clone <repository-url>
+cd portfolio
+```
+
+2. **依存関係のインストール**
+```bash
+npm install
+# または
+yarn install
+# または
+pnpm install
+# または
+bun install
+```
+
+3. **環境変数の設定**
+
+プロジェクトルートに `.env.local` ファイルを作成し、以下の環境変数を設定してください：
+
+```env
+# Supabase設定
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+**Supabaseの設定方法：**
+1. [Supabase](https://supabase.com/)でプロジェクトを作成
+2. プロジェクトの「Settings」→「API」から以下を取得：
+   - `Project URL` → `NEXT_PUBLIC_SUPABASE_URL`
+   - `anon public` key → `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+
+4. **開発サーバーの起動**
 ```bash
 npm run dev
-# or
+# または
 yarn dev
-# or
+# または
 pnpm dev
-# or
+# または
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. **ブラウザで確認**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+[http://localhost:3000](http://localhost:3000) を開いてアプリケーションを確認してください。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 利用可能なスクリプト
 
-## Learn More
+- `npm run dev` - 開発サーバーを起動
+- `npm run build` - 本番用ビルドを作成
+- `npm run start` - 本番サーバーを起動（ビルド後）
+- `npm run lint` - ESLintでコードをチェック
 
-To learn more about Next.js, take a look at the following resources:
+## プロジェクト構造
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+portfolio/
+├── src/
+│   ├── app/              # Next.js App Router
+│   │   ├── layout.tsx    # ルートレイアウト
+│   │   ├── page.tsx      # ホームページ
+│   │   └── home.tsx      # ホームコンポーネント
+│   ├── components/       # Reactコンポーネント
+│   │   └── ui/           # shadcn/uiコンポーネント
+│   ├── lib/              # ライブラリ・ユーティリティ
+│   │   ├── client.ts
+│   │   ├── supabaseClient.ts  # Supabaseクライアント
+│   │   └── utils.ts
+│   ├── utils/            # ユーティリティ関数
+│   │   └── server/       # サーバーサイドユーティリティ
+│   │   └── supabase.ts
+│   └── globals.css       # グローバルスタイル
+├── public/               # 静的ファイル
+├── components.json       # shadcn/ui設定
+├── next.config.ts       # Next.js設定
+├── tsconfig.json        # TypeScript設定
+└── package.json         # 依存関係
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## デプロイ
 
-## Deploy on Vercel
+### Vercelへのデプロイ
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. [Vercel](https://vercel.com/)にアカウントを作成
+2. GitHubリポジトリを連携
+3. 環境変数を設定：
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+4. デプロイを実行
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+詳細は [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) を参照してください。
