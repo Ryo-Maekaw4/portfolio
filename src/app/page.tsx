@@ -291,6 +291,41 @@ export default function Home() {
                 </CardContent>
               </Card>
             </a>
+            <a
+              href="https://sales-calculation-five.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <Card className="bg-gray-900 border-2 border-yellow-500/30 hover:border-yellow-500 transition-all duration-300 shadow-lg shadow-yellow-500/10 hover:shadow-yellow-500/20 cursor-pointer h-full">
+                <CardContent className="p-6">
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-badeen bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent">
+                      売上計算サイト
+                    </h3>
+                    <p className="text-gray-300 text-sm">
+                      売上を計算・管理するためのWebアプリケーション
+                    </p>
+                    <div className="flex items-center gap-2 text-yellow-400 text-sm">
+                      <span>サイトを見る</span>
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </a>
           </div>
         </div>
       </motion.section>
