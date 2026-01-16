@@ -245,6 +245,56 @@ export default function Home() {
         </div>
       </motion.section>
 
+      {/* ここに作成したものを表示するセクション */}
+      <motion.section
+        id="works"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: showContent ? 1 : 0, y: showContent ? 0 : 20 }}
+        transition={{ duration: 0.8, delay: 1.1 }}
+        className="py-12 px-4 bg-black scroll-mt-16"
+      >
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl mb-6 bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent font-badeen">Works</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <a
+              href="https://study-vue-black.vercel.app/education"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <Card className="bg-gray-900 border-2 border-yellow-500/30 hover:border-yellow-500 transition-all duration-300 shadow-lg shadow-yellow-500/10 hover:shadow-yellow-500/20 cursor-pointer h-full">
+                <CardContent className="p-6">
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-badeen bg-gradient-to-r from-yellow-400 to-red-500 bg-clip-text text-transparent">
+                      Vue学習サイト
+                    </h3>
+                    <p className="text-gray-300 text-sm">
+                      Vue.jsの学習コンテンツを提供するWebサイト
+                    </p>
+                    <div className="flex items-center gap-2 text-yellow-400 text-sm">
+                      <span>サイトを見る</span>
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </a>
+          </div>
+        </div>
+      </motion.section>
+
       {/* プロジェクトセクション - 一旦非表示 */}
       {/* 
       <section className="py-12 px-4 pb-20 bg-black">
